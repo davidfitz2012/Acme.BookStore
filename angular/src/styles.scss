@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+/* Import prebuilt Angular Material theme */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Material Icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Material custom styles - MUST be loaded after prebuilt theme to override colors */
+@import './material-styles.scss';
 
 @keyframes donut-spin {
   0% {
@@ -11,6 +19,7 @@
 :root  {
   --lpx-logo: url('/assets/images/logo/logo-light.png');
   --lpx-logo-icon: url('/assets/images/logo/logo-light-thumbnail.png');
+  --primary-color: #afcb54;
 }
 .donut {
   display: inline-block;

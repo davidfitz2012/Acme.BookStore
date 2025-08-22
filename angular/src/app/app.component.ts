@@ -1,14 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoaderBarComponent } from '@abp/ng.theme.shared';
-import { DynamicLayoutComponent } from '@abp/ng.core';
+import { AppLayoutComponent } from './layout/app-layout.component';
+import { ThemeService } from './shared/theme.service';
 
 @Component({
   selector: 'app-root',
   template: `
     <abp-loader-bar></abp-loader-bar>
-    <abp-dynamic-layout></abp-dynamic-layout>
+    <app-layout></app-layout>
   `,
   standalone: true,
-  imports: [LoaderBarComponent, DynamicLayoutComponent]
+  imports: [LoaderBarComponent, AppLayoutComponent]
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+    // Apply material theme colors
+    this.themeService.applyThemeColors();
+  }
+}
